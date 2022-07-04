@@ -14,8 +14,19 @@ return new class extends Migration
     public function up()
     {
         Schema::create('medicine_infos', function (Blueprint $table) {
+            $table->engine = 'InnoDB';
             $table->id();
-            $table->timestamps();
+            $table->date('date');
+            $table->integer('quantity');
+            $table->decimal('unit_price');
+            $table->decimal('total_in_dollars');
+            $table->string('medicine');
+            $table->integer('unit');
+            $table->unsignedBigInteger('child_id');
+            $table->foreign('child_id')->references('id')->on('patient_infos');
+            $table->string('parent_name');
+            $table->string('remark');
+            $table->string('center_location');
         });
     }
 

@@ -14,8 +14,9 @@ return new class extends Migration
     public function up()
     {
         Schema::create('patient_infos', function (Blueprint $table) {
+            $table->engine = 'InnoDB';
             $table->id();
-            $table->string('parent_name');
+            $table->string('parent_name')->unique();
             $table->date('birthday');
             $table->string('region');
             $table->string('woreda');
@@ -26,7 +27,7 @@ return new class extends Migration
             $table->string('diagnose');
             $table->date('entrance_date');
             $table->boolean('is_active');
-            $table->string('center_location');
+            $table->string('center_location')->unique();
 
         });
     }
