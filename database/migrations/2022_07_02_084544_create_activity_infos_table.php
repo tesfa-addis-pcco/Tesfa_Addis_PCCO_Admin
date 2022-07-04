@@ -15,7 +15,11 @@ return new class extends Migration
     {
         Schema::create('activity_infos', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->integer('birthday_celebration');
+            $table->integer('coffee_celebration');
+            $table->integer('school_participant');
+            $table->date('date');
+            $table->string('center_location');
         });
     }
 

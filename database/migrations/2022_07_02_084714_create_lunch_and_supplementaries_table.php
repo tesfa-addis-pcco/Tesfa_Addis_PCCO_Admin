@@ -15,7 +15,12 @@ return new class extends Migration
     {
         Schema::create('lunch_and_supplementaries', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->unsignedBigInteger('child_id');
+            $table->foreign('child_id')->references('id')->on('patient_infos');
+            $table->date('date');
+            $table->boolean('had_lunch');
+            $table->boolean('had_supplementary');
+            $table->string('location');
         });
     }
 

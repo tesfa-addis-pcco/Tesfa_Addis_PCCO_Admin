@@ -15,7 +15,14 @@ return new class extends Migration
     {
         Schema::create('counselings', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->string('plan_type');
+            $table->integer('plan_in_number');
+            $table->boolean('plan_accomplished');
+            $table->string('challenge');
+            $table->string('measure_taken');
+            $table->string('remark');
+            $table->string('center_location');
+            $table->string('place');
         });
     }
 
