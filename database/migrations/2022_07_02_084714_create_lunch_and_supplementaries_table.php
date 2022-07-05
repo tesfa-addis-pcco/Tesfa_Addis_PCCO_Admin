@@ -20,7 +20,7 @@ return new class extends Migration
             $table->date('date');
             $table->boolean('had_lunch');
             $table->boolean('had_supplementary');
-            $table->string('location');
+            $table->string('center_location');
         });
     }
 
