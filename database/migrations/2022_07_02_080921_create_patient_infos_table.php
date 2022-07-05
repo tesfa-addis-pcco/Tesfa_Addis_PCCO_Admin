@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('patient_infos', function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->id();
-            $table->string('parent_name')->unique();
+            $table->string('parent_name');
             $table->date('birthday');
             $table->string('region');
             $table->string('woreda');
