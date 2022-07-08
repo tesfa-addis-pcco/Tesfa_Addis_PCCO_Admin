@@ -22,6 +22,7 @@ return new class extends Migration
             $table->string('measure_taken');
             $table->string('remark');
             $table->string('center_location');
+            $table->foreign('center_location')->references('center_location')->on('patient_infos');
             $table->string('place');
         });
     }

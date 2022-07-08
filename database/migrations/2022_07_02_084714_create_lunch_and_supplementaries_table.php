@@ -21,6 +21,7 @@ return new class extends Migration
             $table->boolean('had_lunch');
             $table->boolean('had_supplementary');
             $table->string('center_location');
+            $table->foreign('center_location')->references('center_location')->on('patient_infos');
         });
     }
 

@@ -20,6 +20,7 @@ return new class extends Migration
             $table->integer('school_participant');
             $table->date('date');
             $table->string('center_location');
+            $table->foreign('center_location')->references('center_location')->on('patient_infos');
         });
     }
 

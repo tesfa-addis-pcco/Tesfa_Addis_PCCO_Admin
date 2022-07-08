@@ -22,6 +22,7 @@ return new class extends Migration
             $table->boolean('daily_bed_user');
             $table->boolean('return_for_appointment');
             $table->string('center_location');
+            $table->foreign('center_location')->references('center_location')->on('patient_infos');
             $table->string('remark');
         });
     }

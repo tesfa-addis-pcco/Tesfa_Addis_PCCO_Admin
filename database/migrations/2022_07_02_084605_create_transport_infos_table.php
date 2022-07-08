@@ -24,6 +24,7 @@ return new class extends Migration
             $table->string('remark');
             $table->boolean('last_service');
             $table->string('center_location');
+            $table->foreign('center_location')->references('center_location')->on('patient_infos');
         });
     }
 
