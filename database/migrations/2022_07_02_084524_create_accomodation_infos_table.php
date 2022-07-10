@@ -15,7 +15,15 @@ return new class extends Migration
     {
         Schema::create('accomodation_infos', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->date('date');
+            $table->string('parent_name');
+            $table->unsignedBigInteger('child_id');
+            $table->foreign('child_id')->references('id')->on('patient_infos');
+            $table->boolean('daily_bed_user');
+            $table->boolean('return_for_appointment');
+            $table->string('center_location');
+            $table->foreign('center_location')->references('center_location')->on('patient_infos');
+            $table->string('remark');
         });
     }
 

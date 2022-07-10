@@ -15,7 +15,16 @@ return new class extends Migration
     {
         Schema::create('transport_infos', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->string('parent_name');
+            $table->unsignedBigInteger('child_id');
+            $table->foreign('child_id')->references('id')->on('patient_infos');
+            $table->date('date');
+            $table->decimal('amount');
+            $table->string('travel_destination');
+            $table->string('remark');
+            $table->boolean('last_service');
+            $table->string('center_location');
+            $table->foreign('center_location')->references('center_location')->on('patient_infos');
         });
     }
 

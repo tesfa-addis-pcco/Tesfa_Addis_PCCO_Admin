@@ -15,7 +15,15 @@ return new class extends Migration
     {
         Schema::create('labratory_infos', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->date('date');
+            $table->unsignedBigInteger('child_id');
+            $table->foreign('child_id')->references('id')->on('patient_infos');
+            $table->string('parent_name');
+            $table->string('description');
+            $table->decimal('amount');
+            $table->string('remark');
+            $table->string('center_location');
+            $table->foreign('center_location')->references('center_location')->on('patient_infos');
         });
     }
 
